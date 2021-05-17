@@ -1,0 +1,2 @@
+ASPNETCORE_ENVIRONMENT=Development
+ConnectionString=Server=#{host}#;Port=#{port}#;User Id=#{userName}#;Password=#{password}#;Database=#{databaseName}#

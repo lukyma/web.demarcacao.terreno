@@ -1,0 +1,10 @@
+deploy:
+  config:
+    regisgry: docker.io/lukvini
+    image: web.api.demarcacao.terreno
+    host: tst.web.api.demarcacao.terreno.k8s.luk.com
+    alias: tst-api-demarcacao-terreno-k8s
+    replicas: 2
+  env:
+    ASPNETCORE_ENVIROMENT: tst
+    ConnectionString: Server=#{hostDb}#;Port=#{portDb}#;User Id=#{userNameDb}#;Password=#{passwordDb}#;Database=#{databaseNameDb}#

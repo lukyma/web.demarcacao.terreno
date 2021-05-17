@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.Endpoint", "web.api.demarcacao.terreno.Endpoint\web.api.demarcacao.terreno.Endpoint.csproj", "{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.Service", "web.api.demarcacao.terreno.Service\web.api.demarcacao.terreno.Service.csproj", "{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.Domain", "web.api.demarcacao.terreno.Domain\web.api.demarcacao.terreno.Domain.csproj", "{A444EA04-7A4E-4318-A3D6-B51B22EAACAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 Endpoint", "1.0 Endpoint", "{096EC2E5-B396-4251-BB69-7AAACA396AA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.0 Service", "2.0 Service", "{3F347FFB-7E79-4681-A8C4-BE482976946F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.0 Domain", "3.0 Domain", "{FFF64DCB-2759-4053-9027-E4403B9D9273}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.0 Infra", "4.0 Infra", "{4D326ABB-4533-4F9C-BA07-989FAF9F02C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.Infra", "web.api.demarcacao.terreno.Infra\web.api.demarcacao.terreno.Infra.csproj", "{EA31FC22-5293-4B7D-828D-0F60340D09D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.IoC", "web.api.demarcacao.terreno.IoC\web.api.demarcacao.terreno.IoC.csproj", "{91500BED-3FD1-494F-80CE-1C32C31929DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{1CB8FB89-7E67-4F80-8A58-08E8E8761571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{9D5005D2-6039-4EA9-820E-AC2FBB7218D2}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\k8s\deploy_development.yaml = deploy\k8s\deploy_development.yaml
+		deploy\k8s\deploy_production.yaml = deploy\k8s\deploy_production.yaml
+		deploy\k8s\deploy_staging.yaml = deploy\k8s\deploy_staging.yaml
+		deploy\k8s\deploy_testing.yaml = deploy\k8s\deploy_testing.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{7FBB38E5-30FF-4E20-8A50-619729ED231D}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\docker\docker-compose.yaml = deploy\docker\docker-compose.yaml
+		web.api.demarcacao.terreno.Endpoint\Dockerfile = web.api.demarcacao.terreno.Endpoint\Dockerfile
+		deploy\docker\local_env.yaml = deploy\docker\local_env.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.0 Test", "5.0 Test", "{72E88EAD-7B7D-4362-8F46-1057E2700D9A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.Tests", "web.api.demarcacao.terreno.Tests\web.api.demarcacao.terreno.Tests.csproj", "{43E7F79B-A12C-44FA-AB3D-61DA849167D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 CrossCutting", "4.1 CrossCutting", "{C619C908-BD08-4233-BDFA-4FB42247E412}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web.api.demarcacao.terreno.CrossCutting", "web.api.demarcacao.terreno.CrossCutting\web.api.demarcacao.terreno.CrossCutting.csproj", "{481F0BA9-8758-4AA8-9E7D-E221A33174AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F03B0B9-8E0C-4B4A-A1D1-A8C011726928}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web.api.demarcacao.terreno.Data", "web.api.demarcacao.terreno.Data\web.api.demarcacao.terreno.Data.csproj", "{4CDF0599-8B91-444C-BAFA-698890C137E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A444EA04-7A4E-4318-A3D6-B51B22EAACAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A444EA04-7A4E-4318-A3D6-B51B22EAACAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A444EA04-7A4E-4318-A3D6-B51B22EAACAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A444EA04-7A4E-4318-A3D6-B51B22EAACAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA31FC22-5293-4B7D-828D-0F60340D09D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA31FC22-5293-4B7D-828D-0F60340D09D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA31FC22-5293-4B7D-828D-0F60340D09D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA31FC22-5293-4B7D-828D-0F60340D09D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91500BED-3FD1-494F-80CE-1C32C31929DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91500BED-3FD1-494F-80CE-1C32C31929DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91500BED-3FD1-494F-80CE-1C32C31929DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91500BED-3FD1-494F-80CE-1C32C31929DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E7F79B-A12C-44FA-AB3D-61DA849167D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E7F79B-A12C-44FA-AB3D-61DA849167D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E7F79B-A12C-44FA-AB3D-61DA849167D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E7F79B-A12C-44FA-AB3D-61DA849167D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481F0BA9-8758-4AA8-9E7D-E221A33174AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481F0BA9-8758-4AA8-9E7D-E221A33174AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481F0BA9-8758-4AA8-9E7D-E221A33174AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481F0BA9-8758-4AA8-9E7D-E221A33174AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDF0599-8B91-444C-BAFA-698890C137E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDF0599-8B91-444C-BAFA-698890C137E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDF0599-8B91-444C-BAFA-698890C137E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDF0599-8B91-444C-BAFA-698890C137E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3BC9090-5F59-4F2E-8B1E-FAFAA9D93470} = {096EC2E5-B396-4251-BB69-7AAACA396AA6}
+		{F145E1AE-FE43-4E21-9DB6-6CB38D0D048A} = {3F347FFB-7E79-4681-A8C4-BE482976946F}
+		{A444EA04-7A4E-4318-A3D6-B51B22EAACAB} = {FFF64DCB-2759-4053-9027-E4403B9D9273}
+		{EA31FC22-5293-4B7D-828D-0F60340D09D5} = {4D326ABB-4533-4F9C-BA07-989FAF9F02C8}
+		{91500BED-3FD1-494F-80CE-1C32C31929DC} = {4D326ABB-4533-4F9C-BA07-989FAF9F02C8}
+		{9D5005D2-6039-4EA9-820E-AC2FBB7218D2} = {1CB8FB89-7E67-4F80-8A58-08E8E8761571}
+		{7FBB38E5-30FF-4E20-8A50-619729ED231D} = {1CB8FB89-7E67-4F80-8A58-08E8E8761571}
+		{43E7F79B-A12C-44FA-AB3D-61DA849167D7} = {72E88EAD-7B7D-4362-8F46-1057E2700D9A}
+		{481F0BA9-8758-4AA8-9E7D-E221A33174AE} = {C619C908-BD08-4233-BDFA-4FB42247E412}
+		{4CDF0599-8B91-444C-BAFA-698890C137E3} = {4D326ABB-4533-4F9C-BA07-989FAF9F02C8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8686021C-7F6B-4592-9DCA-26DA13D3D279}
+	EndGlobalSection
+EndGlobal

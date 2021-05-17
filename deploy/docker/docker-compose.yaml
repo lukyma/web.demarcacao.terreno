@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  demarcacao-terreno-postgress:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: admin123
+    networks:
+      - demarcacao-terreno-network
+    volumes:
+      - ${HOME}/docker/volumes/postgresql/data:/var/lib/postgresql/data
+    container_name: demarcacao.terreno.postgress
+
+  demarcacao-terreno-web:
+    build:
+      context: ../..
+      dockerfile: web.api.demarcacao.terreno.Endpoint/Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - local_env.yaml
+    networks:
+      - demarcacao-terreno-network
+    volumes:
+      - ${HOME}/docker/volumes/postgresql/data:/var/lib/postgresql/data
+    container_name: demarcacao.terreno.web
+    depends_on:
+      - demarcacao-terreno-postgress
+
+networks: 
+  demarcacao-terreno-network:
+    driver: bridge
