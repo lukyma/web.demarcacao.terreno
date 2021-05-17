@@ -10,7 +10,7 @@ Cálculo da área entre 3 ou mais pares de coordenadas geográficas.
 Para acessar a aplicação, favor seguir os passos abaixo:
 Url da Documentacao: https://web-api-demarcacao-terreno.herokuapp.com/swagger
 Collection Postman: está na raiz do projeto. Está em formato Zip que foi anexado na tarefa do canvas.
-Github: 
+Github: https://github.com/lukyma/web.demarcacao.terreno
 
 # Adicional Infos
 Usuarios:
