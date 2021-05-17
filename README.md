@@ -1,4 +1,4 @@
-# Introduction 
+# Introdução 
 Aplicação para gestão na demarcação de terrenos. 
 Essa aplicação faz o cálculo entre coordenadas geográficas em formato double. 
 Cálculos:
@@ -6,13 +6,13 @@ Distância entre 2 ou mais pares de coordenadas geográficas.
 Cálculo da área entre 3 ou mais pares de coordenadas geográficas.
 É possível verificar os retornos ao retornar os terrenos ou através de um cadastro.
 
-# Getting Started
+# Iniciar
 Para acessar a aplicação, favor seguir os passos abaixo:
 Url da Documentacao: https://web-api-demarcacao-terreno.herokuapp.com/swagger
 Collection Postman: está na raiz do projeto. Está em formato Zip que foi anexado na tarefa do canvas.
 Github: https://github.com/lukyma/web.demarcacao.terreno
 
-# Adicional Infos
+# Informações adicionais
 Usuarios:
 
 Usuário admin -> Acesso Total
@@ -27,7 +27,7 @@ Existe uma regra implementada em um Middleware, onde só é permitido fazer 10 c
 Pode ser que alguns Endpoints de listagem ainda não esteja funcionando :( 
 
 
-# Contribute
+# Contribuinte
 Essa foi uma aplicação construído por Lucas Machado
 Foi levado em consideração as boas práticas de mercado.
 Conceitos SOLID, Migration, Design Pattern(Strategy) (Library construída por mim https://github.com/lukyma/pattern), 
