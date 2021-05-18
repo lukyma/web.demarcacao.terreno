@@ -17,6 +17,8 @@ namespace web.api.demarcacao.terreno.Service.Automapper
             CreateMap<Terreno, RetornaTerrenoQueryResponse>();
             CreateMap<Coordenada, CoordenadaRequest>();
             CreateMap<AtualizaTerrenoRequest, Terreno>();
+            CreateMap<Empreendimento, EmpreendimentoRequest>();
+            CreateMap<Terreno, TerrenoRequest>();
         }
     }
 }

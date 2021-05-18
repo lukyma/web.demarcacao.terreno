@@ -17,9 +17,13 @@ namespace web.api.demarcacao.terreno.Endpoint.Models.Automapper
             CreateMap<EmpreendimentoVM, AtualizaEmpreendimentoRequest>();
             CreateMap<RetornarEmpreendimentoQueryResponse, EmpreendimentoVM>();
             CreateMap<ListaEmpreendimentoQueryResponse, ListaEmpreendimentoResponseVM>();
+            CreateMap<EmpreendimentoRequest, EmpreendimentoVM>();
+            CreateMap<TerrenoRequest, TerrenoVM>();
             CreateMap<TerrenoVM, CadastraTerrenoRequest>();
             CreateMap<CoordenadasVM, CoordenadaRequest>();
+            CreateMap<CoordenadaRequest, CoordenadasVM>();
             CreateMap<TerrenoVM, AtualizaTerrenoRequest>();
+            CreateMap<ListaTerrenoQueryResponse, ListaTerrenoResponseVM>();
             CreateMap<AuthTokenVM, AuthUserQuery>();
             CreateMap<AuthUserQueryResponse, AuthTokenResponseVM>()
                 .ForMember(o => o.AccessToken, o => o.MapFrom(p => GegerateToken.Generate(p)));

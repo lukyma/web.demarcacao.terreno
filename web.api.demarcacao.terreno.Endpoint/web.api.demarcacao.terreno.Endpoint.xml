@@ -25,7 +25,7 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:web.api.demarcacao.terreno.Endpoint.Controllers.EmpreendimentoController.GetAsync">
+        <member name="M:web.api.demarcacao.terreno.Endpoint.Controllers.EmpreendimentoController.GetAsync(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Listagem de todos os empreendimentos
             </summary>
@@ -63,7 +63,7 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:web.api.demarcacao.terreno.Endpoint.Controllers.TerrenoController.GetAsync">
+        <member name="M:web.api.demarcacao.terreno.Endpoint.Controllers.TerrenoController.GetAsync(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Listagem de todos os terrenos
             </summary>

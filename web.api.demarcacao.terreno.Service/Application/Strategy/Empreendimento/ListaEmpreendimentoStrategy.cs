@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using patterns.strategy;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using web.api.demarcacao.terreno.Domain.Interfaces.Repository;
-using web.api.demarcacao.terreno.Service.Application.Strategy.Request;
 
 namespace web.api.demarcacao.terreno.Service.Application.Strategy
 {
@@ -21,7 +21,10 @@ namespace web.api.demarcacao.terreno.Service.Application.Strategy
         public async Task<ListaEmpreendimentoQueryResponse> HandleAsync(ListaEmpreendimentoQuery request,
                                                                         CancellationToken cancellationToken)
         {
-            return Mapper.Map<ListaEmpreendimentoQueryResponse>(await EmpreendimentoRepository.AllAsync(cancellationToken, true));
+            var itens = await EmpreendimentoRepository.AllAsync(request.Pagina, 10, cancellationToken, true);
+            var response = new ListaEmpreendimentoQueryResponse(Mapper.Map<IEnumerable<EmpreendimentoRequest>>(itens));
+            response.Pagina = request.Pagina;
+            return response;
         }
     }
 }

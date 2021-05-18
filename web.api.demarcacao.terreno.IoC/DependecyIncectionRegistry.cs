@@ -39,11 +39,13 @@ namespace web.api.demarcacao.terreno.IoC
             services.AddScoppedStrategy<IStrategy<CadastraEmpreendimentoRequest, DefaultResponse>, CadastraEmpreendimentoStrategy>();
             services.AddScoppedStrategy<IStrategy<AtualizaEmpreendimentoRequest, DefaultResponse>, AtualizaEmpreendimentoStrategy>();
             services.AddScoppedStrategy<IStrategy<RetornaEmpreendimentoQuery, RetornarEmpreendimentoQueryResponse>, RetornaEmpreendimentoStrategy>();
+            services.AddScoppedStrategy<IStrategy<ListaEmpreendimentoQuery, ListaEmpreendimentoQueryResponse>, ListaEmpreendimentoStrategy>();
 
             services.AddScoppedStrategy<IStrategy<CadastraTerrenoRequest, CadastraTerrenoResponse>, CadastraTerrenoStrategy>();
             services.AddScoppedStrategy<IStrategy<RetornaTerrenoQuery, RetornaTerrenoQueryResponse>, RetornaTerrenoStrategy>();
             services.AddScoppedStrategy<IStrategy<AtualizaTerrenoRequest, DefaultResponse>, AtualizaTerrenoStrategy>();
             services.AddScoppedStrategy<IStrategy<ExcluiTerrenoRequest, DefaultResponse>, ExcluiTerrenoStrategy>();
+            services.AddScoppedStrategy<IStrategy<ListaTerrenoQuery, ListaTerrenoQueryResponse>, ListaTerrenoStrategy>();
 
             services.AddScoped<IStrategy<AuthUserQuery, AuthUserQueryResponse>, AuthUserStrategy>();
         }

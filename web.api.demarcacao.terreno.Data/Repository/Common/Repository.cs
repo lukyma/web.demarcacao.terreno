@@ -66,17 +66,21 @@ namespace web.api.demarcacao.terreno.Data.Repository.Common
             Context.Update(entity);
         }
 
-        public virtual IEnumerable<TEntity> All(bool @readonly = false)
+        public virtual IQueryable<TEntity> All(int page, int take, bool @readonly = false)
         {
+            take = take == 0 ? 10 : take;
+            page = (page - 1) < 0 ? 1 : page;
             return @readonly
-                ? DbSet.AsNoTracking().ToList()
-                : DbSet.ToList();
+                ? DbSet.Skip((page - 1) * take).Take(take).AsNoTracking()
+                : DbSet.Skip((page - 1) * take).Take(take);
         }
-        public virtual async Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken, bool @readonly = false)
+        public virtual async Task<IEnumerable<TEntity>> AllAsync(int page, int take, CancellationToken cancellationToken, bool @readonly = false)
         {
+            take = take <= 0 ? 10 : take;
+            page = (page - 1) < 0 ? 1 : page;
             return @readonly
-                ? await DbSet.AsNoTracking().ToListAsync(cancellationToken)
-                : await DbSet.ToListAsync(cancellationToken);
+                ? await DbSet.Skip((page - 1) * take).Take(take).AsNoTracking().ToListAsync(cancellationToken)
+                : await DbSet.Skip((page - 1) * take).Take(take).ToListAsync(cancellationToken);
         }
 
         public virtual IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate, bool @readonly = false)

@@ -18,8 +18,8 @@ namespace web.api.demarcacao.terreno.Domain.Interfaces.Repository.Common
         TEntity Get(TKey id);
         Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken);
         bool Any(Expression<Func<TEntity, bool>> predicate);
-        IEnumerable<TEntity> All(bool @readonly = false);
-        Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken, bool @readonly = false);
+        IQueryable<TEntity> All(int page, int take, bool @readonly = false);
+        Task<IEnumerable<TEntity>> AllAsync(int page, int take, CancellationToken cancellationToken, bool @readonly = false);
         IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate, bool @readonly = false);
     }
 }

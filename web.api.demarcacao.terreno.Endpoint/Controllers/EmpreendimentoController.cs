@@ -6,11 +6,13 @@ using patterns.strategy;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using web.api.demarcacao.terreno.Endpoint.Config;
 using web.api.demarcacao.terreno.Endpoint.Models;
 using web.api.demarcacao.terreno.Endpoint.Models.HandleValidaiton;
+using web.api.demarcacao.terreno.Endpoint.Models.Reseponse;
 using web.api.demarcacao.terreno.Service.Application.Strategy;
 using web.api.demarcacao.terreno.Service.Application.Strategy.Request;
 using static web.api.demarcacao.terreno.Endpoint.Config.Swagger.EmpreendimentoExampleMessage;
@@ -52,16 +54,22 @@ namespace web.api.demarcacao.terreno.Endpoint.Controllers
         /// </summary>
         /// <returns></returns>
         [ApiVersion("1")]
-        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(IEnumerable<EmpreendimentoVM>))]
+        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(ListaEmpreendimentoResponseVM))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, SwaggerConstants.Descricao400, type: typeof(ErrorMessage))]
-        [SwaggerResponseExample(StatusCodes.Status400BadRequest, typeof(EmpreendimentoPutMessage))]
         [SwaggerResponse(StatusCodes.Status404NotFound, SwaggerConstants.Descricao404)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, SwaggerConstants.Descricao500)]
         [HttpGet("v{version:apiVersion}/[controller]")]
         [Authorize("ListEmp")]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetAsync([FromQuery] int pagina, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(Ok());
+            ListaEmpreendimentoQueryResponse response = await StrategyContext
+                .HandlerAsync<ListaEmpreendimentoQuery,
+                              ListaEmpreendimentoQueryResponse>(new ListaEmpreendimentoQuery() { Pagina = pagina }, cancellationToken);
+            if (response == null || !response.Itens.Any())
+            {
+                return await ApiResponseAsync(NotFound());
+            }
+            return await ApiResponseAsync(Ok(Mapper.Map<ListaEmpreendimentoResponseVM>(response)));
         }
 
         /// <summary>

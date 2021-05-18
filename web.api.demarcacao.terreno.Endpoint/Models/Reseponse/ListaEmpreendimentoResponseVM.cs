@@ -2,8 +2,8 @@
 
 namespace web.api.demarcacao.terreno.Endpoint.Models.Reseponse
 {
-    public class ListaEmpreendimentoResponseVM
+    public class ListaEmpreendimentoResponseVM : PaginacaoResponseVM
     {
-        public IEnumerable<EmpreendimentoVM> Empreendimentos { get; set; }
+        public IEnumerable<EmpreendimentoVM> Itens { get; set; }
     }
 }

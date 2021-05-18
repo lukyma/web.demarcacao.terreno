@@ -6,11 +6,13 @@ using patterns.strategy;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using web.api.demarcacao.terreno.Endpoint.Config;
 using web.api.demarcacao.terreno.Endpoint.Models;
 using web.api.demarcacao.terreno.Endpoint.Models.HandleValidaiton;
+using web.api.demarcacao.terreno.Endpoint.Models.Reseponse;
 using web.api.demarcacao.terreno.Service.Application.Strategy;
 using web.api.demarcacao.terreno.Service.Application.Strategy.Request;
 using web.api.demarcacao.terreno.Service.Application.Strategy.Terreno.Request;
@@ -52,15 +54,23 @@ namespace web.api.demarcacao.terreno.Endpoint.Controllers
         /// </summary>
         /// <returns></returns>
         [ApiVersion("1")]
-        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(IEnumerable<TerrenoVM>))]
+        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(ListaTerrenoResponseVM))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, SwaggerConstants.Descricao400)]
         [SwaggerResponse(StatusCodes.Status404NotFound, SwaggerConstants.Descricao404)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, SwaggerConstants.Descricao500)]
+        [SwaggerOperation(Description = "Caso não informar a pagina, o default será 1")]
         [HttpGet("v{version:apiVersion}/[controller]")]
         [Authorize("ListTerr")]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetAsync([FromQuery]int pagina, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(Ok());
+            ListaTerrenoQueryResponse response = await StrategyContext
+                .HandlerAsync<ListaTerrenoQuery,
+                              ListaTerrenoQueryResponse>(new ListaTerrenoQuery() { Pagina = pagina }, cancellationToken);
+            if (response == null || !response.Itens.Any())
+            {
+                return await ApiResponseAsync(NotFound());
+            }
+            return await ApiResponseAsync(Ok(Mapper.Map<ListaTerrenoResponseVM>(response)));
         }
 
         /// <summary>
@@ -74,6 +84,7 @@ namespace web.api.demarcacao.terreno.Endpoint.Controllers
         [SwaggerResponseExample(StatusCodes.Status400BadRequest, typeof(TerrenoGetIdMessage))]
         [SwaggerResponse(StatusCodes.Status404NotFound, SwaggerConstants.Descricao404)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, SwaggerConstants.Descricao500)]
+        [SwaggerOperation(Description = "")]
         [HttpGet("v{version:apiVersion}/[controller]/empreendimento/{idEmpreendimento}")]
         [Authorize("ListTerr")]
         public async Task<IActionResult> GetTerrenosEmpreendimentoAsync(CancellationToken cancellationToken)
@@ -88,7 +99,7 @@ namespace web.api.demarcacao.terreno.Endpoint.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [ApiVersion("1")]
-        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(TerrenoVM))]
+        [SwaggerResponse(StatusCodes.Status200OK, SwaggerConstants.Descricao200, typeof(RetornaTerrenoQueryResponse))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, SwaggerConstants.Descricao400, type: typeof(ErrorMessage))]
         [SwaggerResponseExample(StatusCodes.Status400BadRequest, typeof(TerrenoGetIdMessage))]
         [SwaggerResponse(StatusCodes.Status404NotFound, SwaggerConstants.Descricao404)]
